@@ -73,25 +73,25 @@ And finally in the script section of the header, I have the actual script for th
 
 In the body, I defined how many tabs there are, and to what they link.A <div> is simply a section of a document. <ul> is an unordered list, with each <li> being an item in that list. 
 
-<div id=tabs> is the section of the document that contains the tabs
-<div id=tabs-1> through <div id=tabs-3> is the section of the document taken up by each tab.
+		<div id=tabs> is the section of the document that contains the tabs
+		<div id=tabs-1> through <div id=tabs-3> is the section of the document taken up by each tab.
 
-<body>
-<div id="tabs">
-            <ul>
-                <li><a class="tabref" href="#tabs-1" rel="http://www.espn.com">ESPN</a></li>
-                <li><a class="tabref" href="#tabs-2" rel="http://www.espn.com">ESPN</a></li>
-                <li><a class="tabref" href="#tabs-3" rel="http://www.espn.com">ESPN</a></li>
+		<body>
+		<div id="tabs">
+            	<ul>
+                	<li><a class="tabref" href="#tabs-1" rel="http://www.espn.com">ESPN</a></li>
+                	<li><a class="tabref" href="#tabs-2" rel="http://www.espn.com">ESPN</a></li>
+                	<li><a class="tabref" href="#tabs-3" rel="http://www.espn.com">ESPN</a></li>
 		
-            </ul>
-            <div id="tabs-1" class="tabMain">
-            </div>
-            <div id="tabs-2">
-            </div>
-            <div id="tabs-3">
-            </div>
-        </div> 
-</body>
+        	 </ul>
+            		<div id="tabs-1" class="tabMain">
+            		</div>
+            		<div id="tabs-2">
+            		</div>
+        		<div id="tabs-3">
+            		</div>
+        	</div> 
+		</body>
 
 Hope you like it.
 
