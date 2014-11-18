@@ -71,7 +71,7 @@ And finally in the script section of the header, I have the actual script for th
             });
         </script>
 
-In the body, I defined how many tabs there are, and to what they link.A "<div>" is simply a section of a document. "<ul>" is an unordered list, with each "<li>" being an item in that list. 
+In the body, I defined how many tabs there are, and to what they link. div is simply a section of a document. ul is an unordered list, with each li being an item in that list. 
 
 		<div id=tabs> is the section of the document that contains the tabs
 		<div id=tabs-1> through <div id=tabs-3> is the section of the document taken up by each tab.
