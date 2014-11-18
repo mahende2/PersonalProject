@@ -16,6 +16,7 @@ To invoke the jquery library in my html page, I added the script calls in the HT
 
 
 In the style section of the header, I defined what the tabs will look like:
+
 	<style>
             html {
                 font-size:10px;
@@ -60,7 +61,7 @@ And finally in the script section of the header, I have the actual script for th
                     if ($(tab).find("iframe").length == 0) {
                         var html = [];
                         html.push('<div class="tabIframeWrapper">');
-                        html.push('<div class="openout"><a href="' + url + '"><img src="data/world.png" border="0" alt="Open" title="Remove iFrame" /></a></div><iframe class="iframetab" src="' + url + '">Load Failed?</iframe>');
+                        html.push('<div class="openout"><a href="' + url + '"><img src="data/world.png" border="0" alt="Open"                        title="Remove iFrame" /></a></div><iframe class="iframetab" src="' + url + '">Load Failed?</iframe>');
                         html.push('</div>');
                         $(tab).append(html.join(""));
                         $(tab).find("iframe").height($(window).height()-80);
@@ -79,8 +80,8 @@ In the body, I defined how many tabs there are, and to what they link.A <div> is
 <div id="tabs">
             <ul>
                 <li><a class="tabref" href="#tabs-1" rel="http://www.espn.com">ESPN</a></li>
-                <li><a class="tabref" href="#tabs-2" rel="http://www.yahoo.com">Yahoo!</a></li>
-                <li><a class="tabref" href="#tabs-3" rel="http://www.google.com">Google</a></li>
+                <li><a class="tabref" href="#tabs-2" rel="http://www.espn.com">ESPN</a></li>
+                <li><a class="tabref" href="#tabs-3" rel="http://www.espn.com">ESPN</a></li>
 		
             </ul>
             <div id="tabs-1" class="tabMain">
