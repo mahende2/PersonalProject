@@ -1,0 +1,166 @@
+<html>
+    <head>
+        <script type="text/javascript" src="data/js/jquery.js"></script>
+        <script type="text/javascript" src="data/js/jquery-ui.js"></script>
+		<script src="data/js/jquery.plugin.js"></script>
+		
+		
+        <link href="data/css/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+		
+		
+        <style>
+            html {
+                font-size:10px;
+            }
+
+            .iframetab {
+                width:100%;
+                height:auto;
+                border:0px;
+                margin:0px;
+                background:url("data/Pitchfork.png");
+                position:relative;
+                top:-1px;
+            }
+
+            .ui-tabs-panel {
+                padding:5px !important;
+            }
+
+            .openout {
+                float:right;
+                position:relative;
+                top:-28px;
+                left:-5px;
+            }
+        </style>
+		
+		
+<script type = "text/javascript">
+// From: http://www.codingforums.com/showthread.php?t=187335  jmrker corrected by Philip M 
+
+var cday;
+var timeInSecs;
+var ticker;
+
+function getSeconds() {
+var now = new Date();
+var dy = 4 ; // Friday (day 5) - change for other days 0-6  as required
+var countdowntime = new Date(now.getFullYear(),now.getMonth(),now.getDate(),17,0,0); //  16 hrs = 4 pm
+// countdowntime - change time hh,mm,ss to whatever time required, e.g. 7,50,0 (0750)
+
+var nowtime= now.getTime();  // time now in milliseconds
+var atime = countdowntime.getTime();  // countdown time in milliseconds
+var diff = parseInt((atime - nowtime)/1000);  // positive if countdowntime is in future
+if (diff > 0) { cday = dy - now.getDay() }    
+else { cday =  dy - now.getDay() -1 }  //  already passed countdown time
+if (cday < 0) { cday += 7; }   // aleady passed countdown time, so go for next week
+if (diff <= 0) { diff += (86400 * 7) }  // move on one week
+startTimer (diff);
+}
+
+function startTimer(secs) {
+timeInSecs = parseInt(secs);
+ticker = setInterval("tick()",1000); 
+tick(); // to start counter display right away
+}
+
+function tick() {
+var secs = timeInSecs;
+if (secs>0)   { 
+timeInSecs--; 
+} 
+else { 
+clearInterval(ticker); // stop counting at zero
+getSeconds();  // and start all over again! 
+ }
+
+var days = Math.floor(secs/86400);  // redundant
+secs %= 86400;
+var hours= Math.floor(secs/3600);
+secs %= 3600;
+var mins = Math.floor(secs/60);
+secs %= 60;
+var result = "Rosters Lock in: " + cday +' day(s) ';
+result += ((hours < 10 ) ? "0" : "" ) + hours + " hours " + ( (mins < 10) ? "0" : "" ) + mins
+                + " minutes " + ( (secs < 10) ? "0" : "" ) + secs + " seconds";
+document.getElementById("countdown").innerHTML =  result;
+}
+</script>
+		
+        <script>
+            $(document).ready(function() {
+                var $tabs = $('#tabs').tabs();
+
+                //get selected tab
+                function getSelectedTabIndex() {
+                    return $tabs.tabs('option', 'selected');
+                }
+
+                //get tab contents
+                beginTab = $("#tabs ul li:eq(" + getSelectedTabIndex() + ")").find("a");
+
+                loadTabFrame($(beginTab).attr("href"),$(beginTab).attr("rel"));
+
+                $("a.tabref").click(function() {
+                    loadTabFrame($(this).attr("href"),$(this).attr("rel"));
+                });
+
+                //tab switching function
+                function loadTabFrame(tab, url) {
+                    if ($(tab).find("iframe").length == 0) {
+                        var html = [];
+                        html.push('<div class="tabIframeWrapper">');
+                        html.push('<div class="openout"><a href="' + url + '"><img src="data/world.png" border="0" alt="Open" title="Remove iFrame" /></a></div><iframe class="iframetab" src="' + url + '">Load Failed?</iframe>');
+                        html.push('</div>');
+                        $(tab).append(html.join(""));
+                        $(tab).find("iframe").height($(window).height()-80);
+                    }
+                    return false;
+                }
+            });
+        </script>
+    </head>
+   <body onload = "getSeconds()">
+
+
+<p>
+	<font size="5">
+		<b>PAC 12 Fantasy Tracker</b>
+	</font><br>
+	<span id="countdown" style="font-size: 20; font-weight:bold;" > </span>
+</p>
+        <div id="tabs">
+            <ul>
+                <li><a class="tabref" href="#tabs-1" rel="http://espn.go.com/college-football/conferences/statistics/player/_/stat/passing/id/9/pac-12-conference">Passing Leaders</a></li>
+				<li><a class="tabref" href="#tabs-2" rel="http://espn.go.com/college-football/conferences/statistics/player/_/stat/rushing/id/9/pac-12-conference">Rushing Leaders</a></li>
+				<li><a class="tabref" href="#tabs-3" rel="http://espn.go.com/college-football/conferences/statistics/player/_/stat/receiving/id/9/pac-12-conference">Receiving Leaders</a></li> 
+				<li><a class="tabref" href="#tabs-4" rel="http://espn.go.com/college-football/conferences/statistics/player/_/stat/kicking/id/9/pac-12-conference">Kicking Leaders</a></li>
+				<li><a class="tabref" href="#tabs-5" rel="http://espn.go.com/college-football/conferences/statistics/player/_/stat/returning/id/9/pac-12-conference">Kick/Punt Return Leaders</a></li>
+				<li><a class="tabref" href="#tabs-6" rel="http://espn.go.com/college-football/conferences/statistics/player/_/stat/scoring/id/9/pac-12-conference">Scoring Leaders</a></li>
+				<li><a class="tabref" href="#tabs-7" rel="http://espn.go.com/college-football/conferences/statistics/player/_/stat/defense/id/9/pac-12-conference">Defensive Leaders</a></li>
+			</ul>
+            <div id="tabs-1" class="tabMain">
+            </div>
+
+            <div id="tabs-2">
+            </div>
+
+            <div id="tabs-3">
+            </div>
+			
+			<div id="tabs-4">
+            </div>
+			
+			<div id="tabs-5">
+            </div>
+			
+			<div id="tabs-6">
+            </div>
+			
+			<div id="tabs-7">
+            </div>
+        </div> 
+
+    </body>
+</html>
